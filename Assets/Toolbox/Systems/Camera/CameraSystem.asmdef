@@ -15,6 +15,12 @@
     "defineConstraints": [
         "CINEMACHINE"
     ],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.cinemachine",
+            "expression": "",
+            "define": "CINEMACHINE"
+        }
+    ],
     "noEngineReferences": false
 }

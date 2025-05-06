@@ -1,7 +1,11 @@
 {
     "name": "Interaction.Camera",
     "rootNamespace": "InteractionSystem",
-    "references": [],
+    "references": [
+        "GUID:2e5042635716d904191004d1e75011b8",
+        "GUID:1c89302031b9d5340bda169a11e02569",
+        "GUID:4307f53044263cf4b835bd812fc161a4"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
@@ -11,6 +15,12 @@
     "defineConstraints": [
         "CINEMACHINE"
     ],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.cinemachine",
+            "expression": "",
+            "define": "CINEMACHINE"
+        }
+    ],
     "noEngineReferences": false
 }
