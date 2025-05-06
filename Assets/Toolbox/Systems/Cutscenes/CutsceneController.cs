@@ -1,8 +1,8 @@
-using Unity.Cinemachine;
 using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
+using NaughtyAttributes;
 
 namespace CutsceneSystem
 {
@@ -10,7 +10,7 @@ namespace CutsceneSystem
     {
         [SerializeField] UIAnimation[] cinematicBars;
         [SerializeField] float endOffsetRate = 1;
-        [SerializeField, TagField] string triggerTagFilter;
+        [SerializeField, Tag] string triggerTagFilter;
 
         // events
         public event Action OnStarted, OnEnded;

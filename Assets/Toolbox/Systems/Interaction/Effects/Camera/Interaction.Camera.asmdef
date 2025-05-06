@@ -1,19 +1,16 @@
 {
-    "name": "Interaction",
+    "name": "Interaction.Camera",
     "rootNamespace": "InteractionSystem",
-    "references": [
-        "GUID:2e5042635716d904191004d1e75011b8",
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:680500c19dbf58446867dd4aa16902dc",
-        "GUID:4307f53044263cf4b835bd812fc161a4"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": [],
+    "defineConstraints": [
+        "CINEMACHINE"
+    ],
     "versionDefines": [],
     "noEngineReferences": false
 }

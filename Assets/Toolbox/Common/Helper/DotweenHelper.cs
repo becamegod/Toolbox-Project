@@ -1,4 +1,3 @@
-using Unity.Cinemachine;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using DG.Tweening;
@@ -31,21 +30,6 @@ public static class DotweenHelper
     {
         DOTween.To(() => image.color, x => image.color = x, color, duration);
     }
-
-    //public static TweenerCore<float, float, FloatOptions> DOFOV(this CinemachineCamera vcam, float fov, float duration)
-    //{
-    //    return DOTween.To(() => vcam.Lens.FieldOfView, x => vcam.Lens.FieldOfView = x, fov, duration);
-    //}
-
-    public static TweenerCore<float, float, FloatOptions> DOFOV(this CinemachineCamera vcam, float fov, float duration)
-    {
-        return DOTween.To(() => vcam.Lens.FieldOfView, x => vcam.Lens.FieldOfView = x, fov, duration);
-    }
-
-    //public static void Fade(this Image image, float alpha, float duration)
-    //{
-    //    DOTween.To(() => image.color.a, x => image.color = new Color(image.color.r, image.color.g, image.color.b, x), alpha, duration);
-    //}
 
     public static void SmoothVertical(this ScrollRect scrollRect, float value, float duration = .5f)
     {
