@@ -1,12 +1,10 @@
-using UnityEngine;
-
-#if UNITY_EDITOR
 using System;
 using System.Collections.Generic;
-using UnityEditor;
-#endif
 
-#if UNITY_EDITOR
+using UnityEditor;
+
+using UnityEngine;
+
 /// <summary>
 /// Draws the property field for any field marked with ExpandableAttribute.
 /// </summary>
@@ -98,8 +96,7 @@ public class ExpandableAttributeDrawer : PropertyDrawer
 
         EditorGUI.PropertyField(fieldRect, property, label, true);
 
-        if (property.objectReferenceValue == null)
-            return;
+        if (property.objectReferenceValue == null) return;
 
         GUI.enabled = false;
 
@@ -213,5 +210,4 @@ public class ExpandableAttributeDrawer : PropertyDrawer
         }
     }
 }
-#endif
 

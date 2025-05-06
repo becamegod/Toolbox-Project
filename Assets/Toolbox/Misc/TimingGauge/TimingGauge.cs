@@ -29,14 +29,14 @@ public class TimingGauge : MonoBehaviour
     [SerializeField] Transform regionParent;
 
     [SerializeField] bool useLabel;
-    [ShowWhen("useLabel", true)][SerializeField] Transform labelPrefab;
-    [ShowWhen("useLabel", true)][SerializeField] RectTransform radiusMin;
-    [ShowWhen("useLabel", true)][SerializeField] RectTransform radiusMax;
+    [ShowIf("useLabel", true)][SerializeField] Transform labelPrefab;
+    [ShowIf("useLabel", true)][SerializeField] RectTransform radiusMin;
+    [ShowIf("useLabel", true)][SerializeField] RectTransform radiusMax;
 
     [SerializeField] bool flashOnStop;
-    [ShowWhen("flashOnStop", true)][SerializeField] int flashCount = 3;
-    [ShowWhen("flashOnStop", true)][SerializeField] float flashBrightness = 1;
-    [ShowWhen("flashOnStop", true)][SerializeField] float flashInterval = .1f;
+    [ShowIf("flashOnStop", true)][SerializeField] int flashCount = 3;
+    [ShowIf("flashOnStop", true)][SerializeField] float flashBrightness = 1;
+    [ShowIf("flashOnStop", true)][SerializeField] float flashInterval = .1f;
 
     private TweenerCore<Quaternion, Vector3, QuaternionOptions> motion;
     private CanvasGroup canvasGroup;

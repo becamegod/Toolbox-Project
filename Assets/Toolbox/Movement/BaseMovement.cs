@@ -7,7 +7,7 @@ public abstract class BaseMovement : MonoBehaviour
     [SerializeField] float topSpeed = 1;
     [SerializeField] protected float runSpeedMultiplier = 2;
     [SerializeField] bool accelerate;
-    [SerializeField, ShowWhen(nameof(accelerate))] float acceleration = .1f;
+    [SerializeField, ShowIf(nameof(accelerate))] float acceleration = .1f;
 
     // props
     public float RunMultiplier

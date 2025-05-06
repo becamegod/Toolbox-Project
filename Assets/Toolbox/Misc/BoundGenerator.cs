@@ -15,23 +15,23 @@ public class BoundGenerator : MonoBehaviour
     [SerializeField] bool topSide = true;
 
     [Header("Thickness override")]
-    [ShowWhen("bottomSide")][SerializeField] bool overrideBottomThickness;
-    [ShowWhen("overrideBottomThickness")][SerializeField] float bottomThickness = 1;
+    [ShowIf("bottomSide")][SerializeField] bool overrideBottomThickness;
+    [ShowIf("overrideBottomThickness")][SerializeField] float bottomThickness = 1;
 
-    [ShowWhen("topSide")][SerializeField] bool overrideTopThickness;
-    [ShowWhen("overrideTopThickness")][SerializeField] float topThickness = 1;
+    [ShowIf("topSide")][SerializeField] bool overrideTopThickness;
+    [ShowIf("overrideTopThickness")][SerializeField] float topThickness = 1;
 
-    [ShowWhen("leftSide")][SerializeField] bool overrideLeftThickness;
-    [ShowWhen("overrideLeftThickness")][SerializeField] float leftThickness = 1;
+    [ShowIf("leftSide")][SerializeField] bool overrideLeftThickness;
+    [ShowIf("overrideLeftThickness")][SerializeField] float leftThickness = 1;
 
-    [ShowWhen("rightSide")][SerializeField] bool overrideRightThickness;
-    [ShowWhen("overrideRightThickness")][SerializeField] float rightThickness = 1;
+    [ShowIf("rightSide")][SerializeField] bool overrideRightThickness;
+    [ShowIf("overrideRightThickness")][SerializeField] float rightThickness = 1;
 
-    [ShowWhen("frontSide")][SerializeField] bool overrideFrontThickness;
-    [ShowWhen("overrideFrontThickness")][SerializeField] float frontThickness = 1;
+    [ShowIf("frontSide")][SerializeField] bool overrideFrontThickness;
+    [ShowIf("overrideFrontThickness")][SerializeField] float frontThickness = 1;
 
-    [ShowWhen("backSide")][SerializeField] bool overrideBackThickness;
-    [ShowWhen("overrideBackThickness")][SerializeField] float backThickness = 1;
+    [ShowIf("backSide")][SerializeField] bool overrideBackThickness;
+    [ShowIf("overrideBackThickness")][SerializeField] float backThickness = 1;
 
     private void Awake()
     {

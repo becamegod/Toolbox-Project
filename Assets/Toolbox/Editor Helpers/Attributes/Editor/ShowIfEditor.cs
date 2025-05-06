@@ -7,10 +7,10 @@ using UnityEditor;
 
 using UnityEngine;
 
-[CustomPropertyDrawer(typeof(ShowWhenAttribute))]
-public class HideWhenPropertyDrawer : PropertyDrawer
+[CustomPropertyDrawer(typeof(ShowIfAttribute))]
+public class ShowIfDrawer : PropertyDrawer
 {
-    ShowWhenAttribute Atb => attribute as ShowWhenAttribute;
+    ShowIfAttribute Atb => attribute as ShowIfAttribute;
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
@@ -30,7 +30,7 @@ public class HideWhenPropertyDrawer : PropertyDrawer
         else return -EditorGUIUtility.standardVerticalSpacing;
     }
 
-    private bool Evaluate(ShowWhenAttribute attribute, SerializedProperty property)
+    private bool Evaluate(ShowIfAttribute attribute, SerializedProperty property)
     {
         var conditionField = attribute.ConditionField.Replace(" ", "");
         return Evaluate(conditionField, property);

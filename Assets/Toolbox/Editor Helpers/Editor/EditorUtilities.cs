@@ -1,7 +1,8 @@
-#if UNITY_EDITOR
 using System;
 using System.Reflection;
+
 using UnityEditor;
+
 namespace EditorImprovements
 {
     public class EditorUtilities
@@ -54,4 +55,3 @@ namespace EditorImprovements
     }
 
 }
-#endif

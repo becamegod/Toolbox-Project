@@ -15,21 +15,21 @@ public class FillBar : MonoBehaviour
     [Space]
     [SerializeField] bool interpolate;
 
-    [SerializeField, ShowWhen("!interpolate")] bool showDelta;
-    [SerializeField, ShowWhen("!interpolate && showDelta")] RectTransform deltaFill;
+    [SerializeField, ShowIf("!interpolate")] bool showDelta;
+    [SerializeField, ShowIf("!interpolate && showDelta")] RectTransform deltaFill;
 
-    [ShowWhen("interpolate || showDelta"), SerializeField] float interpolateDuration = 1;
-    [ShowWhen("interpolate || showDelta")] public Ease interpolateEase;
-    [ShowWhen("interpolate || showDelta"), SerializeField] bool interpolateValue;
+    [ShowIf("interpolate || showDelta"), SerializeField] float interpolateDuration = 1;
+    [ShowIf("interpolate || showDelta")] public Ease interpolateEase;
+    [ShowIf("interpolate || showDelta"), SerializeField] bool interpolateValue;
 
     [Space]
     [SerializeField] bool displayValue;
-    [ShowWhen("displayValue"), SerializeField] GenericText valueText;
+    [ShowIf("displayValue"), SerializeField] GenericText valueText;
 
     [Space]
     [SerializeField] bool dynamicColor;
-    [SerializeField, ShowWhen("dynamicColor")] Color highColor = Color.green;
-    [SerializeField, ShowWhen("dynamicColor")] Color lowColor = Color.red;
+    [SerializeField, ShowIf("dynamicColor")] Color highColor = Color.green;
+    [SerializeField, ShowIf("dynamicColor")] Color lowColor = Color.red;
 
     // props
     private RectTransform Rt => GetComponent<RectTransform>();

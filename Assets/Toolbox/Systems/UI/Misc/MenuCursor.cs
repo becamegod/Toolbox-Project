@@ -10,7 +10,7 @@ namespace UISystem
         [SerializeField] float transitionDuration = .2f;
         [SerializeField] Ease ease = Ease.OutQuint;
         [SerializeField] bool continuousMode;
-        [SerializeField, ShowWhen("continuousMode")] float speed = 5;
+        [SerializeField, ShowIf("continuousMode")] float speed = 5;
 
         private Vector3 position;
         public Vector3 Position

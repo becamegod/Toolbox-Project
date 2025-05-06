@@ -14,8 +14,8 @@ public class AnimationCallbackReactor : MonoBehaviour
     {
         enum KeywordType { String, Reference }
         [SerializeField] KeywordType keywordType;
-        [SerializeField, ShowWhen(nameof(keywordType), KeywordType.String)] string keyword;
-        [SerializeField, ShowWhen(nameof(keywordType), KeywordType.Reference)] ScriptableReference reference;
+        [SerializeField, ShowIf(nameof(keywordType), KeywordType.String)] string keyword;
+        [SerializeField, ShowIf(nameof(keywordType), KeywordType.Reference)] ScriptableReference reference;
         [SerializeField] UnityEvent action;
 
         public string Keyword => keywordType switch

@@ -6,14 +6,14 @@ namespace UISystem
     public class BaseUI : VisibilityParent
     {
         [SerializeField] bool autoDetectAnimation = true;
-        [SerializeField, ShowWhen("!autoDetectAnimation")] UIAnimation showAnimation;
+        [SerializeField, ShowIf("!autoDetectAnimation")] UIAnimation showAnimation;
 
         [SerializeField] bool persistInStack = true;
-        [SerializeField, ShowWhen("persistInStack")] UIAnimation focusAnimation;
+        [SerializeField, ShowIf("persistInStack")] UIAnimation focusAnimation;
 
         [SerializeField] bool differentOutroAnimation;
-        [SerializeField, ShowWhen("differentOutroAnimation")] UIAnimation hideAnimation;
-        [SerializeField, ShowWhen("differentOutroAnimation && persistInStack")] UIAnimation lostFocusAnimation;
+        [SerializeField, ShowIf("differentOutroAnimation")] UIAnimation hideAnimation;
+        [SerializeField, ShowIf("differentOutroAnimation && persistInStack")] UIAnimation lostFocusAnimation;
 
         // events
         public event Action OnShow, OnShown, OnHide, OnHidden;
