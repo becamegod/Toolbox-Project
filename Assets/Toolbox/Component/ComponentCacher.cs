@@ -13,8 +13,5 @@ public class ComponentCacher<T> where T : Component
     }
 
     private readonly MonoBehaviour holder;
-    public ComponentCacher(MonoBehaviour holder)
-    {
-        this.holder = holder;
-    }
+    public ComponentCacher(MonoBehaviour holder) => this.holder = holder;
 }

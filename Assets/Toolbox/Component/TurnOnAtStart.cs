@@ -4,7 +4,7 @@ public class TurnOnAtStart : MonoBehaviour
 {
     [SerializeField] Behaviour component;
 
-    private Behaviour prevComponent;
+    //private Behaviour prevComponent;
 
     //private void OnValidate()
     //{

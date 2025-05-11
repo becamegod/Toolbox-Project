@@ -4,14 +4,14 @@ using UnityEngine.UI;
 
 public class ColorAdjustableUI : MonoBehaviour
 {
-    public float transitionDuration = .5f;
+    [SerializeField] float transitionDuration = .5f;
     [SerializeField, Range(-1, 1)] float highBrightness = .5f, lowBrightness = -.5f;
 
     private Material material;
     private Graphic[] graphics;
-    private readonly int Saturation = Shader.PropertyToID("_Saturation");
-    private readonly int Constrast = Shader.PropertyToID("_Constrast");
-    private readonly int Brightness = Shader.PropertyToID("_Brightness");
+    private static readonly int Saturation = Shader.PropertyToID("_Saturation");
+    private static readonly int Constrast = Shader.PropertyToID("_Constrast");
+    private static readonly int Brightness = Shader.PropertyToID("_Brightness");
 
     private void Awake()
     {

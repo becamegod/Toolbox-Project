@@ -9,8 +9,9 @@ public static class InfoExtension
 {
     public static T Get<T>(this IReadOnlyCollection<Info> infos) where T : Info
     {
-        try { return infos.First(info => info.GetType() == typeof(T)) as T; }
-        catch (InvalidOperationException) { return null; }
+        return infos.Get(typeof(T)) as T;
+        //try { return infos.First(info => info.GetType() == typeof(T)) as T; }
+        //catch (InvalidOperationException) { return null; }
     }
 
     public static Info Get(this IReadOnlyCollection<Info> infos, Type type)
@@ -21,9 +22,7 @@ public static class InfoExtension
 }
 
 [Serializable]
-public abstract class Info : AutoLabeled, INewButton
-{
-}
+public abstract class Info : AutoLabeled, INewButton { }
 
 public class SpriteInfo : Info
 {
@@ -43,17 +42,17 @@ public class AnimationClipInfo : Info
     public AnimationClip Clip => clip;
 }
 
+public class DurationInfo : Info
+{
+    [SerializeField] float duration;
+    public float Duration => duration;
+    public DurationInfo(float duration) => this.duration = duration;
+}
+
 // unsorted
 public class RangeTypeInfo : Info
 {
     public enum RangeType { Melee, Ranged }
     [SerializeField] RangeType type;
     public RangeType Type => type;
-}
-
-public class DurationInfo : Info
-{
-    [SerializeField] float duration;
-    public float Duration => duration;
-    public DurationInfo(float duration) => this.duration = duration;
 }

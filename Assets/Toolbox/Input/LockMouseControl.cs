@@ -19,18 +19,10 @@ namespace CameraSystem
             }
         }
 
-        private void OnEnable()
-        {
-            inputAction.Enable();
-            inputAction.performed += OnPerformed;
-        }
+        private void OnEnable() => inputAction.performed += OnPerformed;
 
-        private void OnDisable()
-        {
-            inputAction.Disable();
-            inputAction.performed -= OnPerformed;
-        }
+        private void OnDisable() => inputAction.performed -= OnPerformed;
 
-        private void OnPerformed(InputAction.CallbackContext obj) => Locked = !Locked;
+        private void OnPerformed(InputAction.CallbackContext _) => Locked = !Locked;
     }
 }

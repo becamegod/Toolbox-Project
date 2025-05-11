@@ -29,7 +29,7 @@ public static class Helper
         })).Start();
     }
 
-    public static Vector2 GetRandomPoint(this Rect rect) => new Vector2(Random.Range(rect.xMin, rect.xMax), Random.Range(rect.yMin, rect.yMax));
+    public static Vector2 GetRandomPoint(this Rect rect) => new(Random.Range(rect.xMin, rect.xMax), Random.Range(rect.yMin, rect.yMax));
 
     public static bool Chance(float rate) => Random.value < rate;
 
@@ -47,11 +47,6 @@ public static class Helper
     }
 
     public static string SplitPascalCase(this string str) => Regex.Replace(str, "(\\B[A-Z])", " $1");
-
-    public static bool Contains(this LayerMask mask, int layer)
-    {
-        return (mask & 1 << layer) != 0;
-    }
 
     public static Quaternion ToRotation2D(this Vector2 delta, float offset = 0)
     {
@@ -73,27 +68,6 @@ public static class Helper
     {
         var viewPos = Camera.main.WorldToViewportPoint(position);
         return viewPos.x is >= 0 and <= 1 && viewPos.y is >= 0 and <= 1 && viewPos.z >= 0;
-    }
-
-    public static void ReplaceClip(this Animator animator, AnimationClip baseClip, AnimationClip newClip)
-    {
-        var overrider = new AnimatorOverrideController(animator.runtimeAnimatorController);
-
-        // copy overrides from old overrider
-        if (animator.runtimeAnimatorController is AnimatorOverrideController oldOverrider)
-        {
-            var oldOverrides = new List<KeyValuePair<AnimationClip, AnimationClip>>();
-            oldOverrider.GetOverrides(oldOverrides);
-            overrider.ApplyOverrides(oldOverrides);
-        }
-
-        // apply new overrides
-        var overrides = new List<KeyValuePair<AnimationClip, AnimationClip>>
-        {
-            new(baseClip, newClip)
-        };
-        overrider.ApplyOverrides(overrides);
-        animator.runtimeAnimatorController = overrider;
     }
 
     public static Vector3 Average(this IEnumerable<Vector3> vectors)

@@ -18,5 +18,5 @@ public class ComponentToggleInput : MonoBehaviour
         inputAction.performed -= OnPerformed;
     }
 
-    private void OnPerformed(InputAction.CallbackContext obj) => component.enabled = !component.enabled;
+    private void OnPerformed(InputAction.CallbackContext _) => component.enabled = !component.enabled;
 }

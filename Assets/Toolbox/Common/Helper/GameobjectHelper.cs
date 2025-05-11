@@ -83,6 +83,7 @@ public static class GameobjectHelper
         for (int i = 0; i < gameObject.transform.childCount; i++)
             gameObject.transform.GetChild(i).gameObject.SetLayer(layer, setChildren);
     }
+
     public static Material FindMaterialByName(this Renderer renderer, string name)
     {
         foreach (var material in renderer.materials)
@@ -116,5 +117,31 @@ public static class GameobjectHelper
         canvasGroup.alpha = (active) ? 1 : 0;
         canvasGroup.interactable = active;
         canvasGroup.blocksRaycasts = active;
+    }
+
+    public static bool Contains(this LayerMask mask, int layer)
+    {
+        return (mask & 1 << layer) != 0;
+    }
+
+    public static void ReplaceClip(this Animator animator, AnimationClip baseClip, AnimationClip newClip)
+    {
+        var overrider = new AnimatorOverrideController(animator.runtimeAnimatorController);
+
+        // copy overrides from old overrider
+        if (animator.runtimeAnimatorController is AnimatorOverrideController oldOverrider)
+        {
+            var oldOverrides = new List<KeyValuePair<AnimationClip, AnimationClip>>();
+            oldOverrider.GetOverrides(oldOverrides);
+            overrider.ApplyOverrides(oldOverrides);
+        }
+
+        // apply new overrides
+        var overrides = new List<KeyValuePair<AnimationClip, AnimationClip>>
+        {
+            new(baseClip, newClip)
+        };
+        overrider.ApplyOverrides(overrides);
+        animator.runtimeAnimatorController = overrider;
     }
 }

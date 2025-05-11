@@ -39,13 +39,14 @@ public class LayerFilter : Filter
 public class ComponentFilter : Filter
 {
 #if UNITY_EDITOR
-    [SerializeField, OnValueChanged(nameof(UpdateTypeName))] MonoScript type;
-    private void UpdateTypeName() => typeName = type.name;
+    [AllowNesting, OnValueChanged(nameof(UpdateTypeName))]
+    [SerializeField] MonoScript script;
+    private void UpdateTypeName() => typeName = script.GetClass().AssemblyQualifiedName;
 #endif
+
     [SerializeField] string typeName;
-
-
     [SerializeField] bool includeChildren;
+
     public override bool Check(GameObject gameObject)
     {
         var type = Type.GetType(typeName);
