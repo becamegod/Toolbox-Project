@@ -10,7 +10,9 @@
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": [],
+    "defineConstraints": [
+        "ANIMATION_RIGGING"
+    ],
     "versionDefines": [
         {
             "name": "com.unity.animation.rigging",
