@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Hitbox : MonoBehaviour
 {
-    [SerializeField] FilteredCollisionCallback collisionCallback;
+    [SerializeField] CollisionCallback collisionCallback;
     [SerializeField] float damage = 1;
 
     [Header("Debug")]
@@ -25,7 +25,7 @@ public class Hitbox : MonoBehaviour
         set => damage = Mathf.Max(value, 0);
     }
 
-    private void Reset() => collisionCallback ??= GetComponent<FilteredCollisionCallback>();
+    private void Reset() => collisionCallback ??= GetComponent<CollisionCallback>();
 
     private void Awake() => hits = new();
 

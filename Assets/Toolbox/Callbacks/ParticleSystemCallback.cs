@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class ParticleSystemCallback : MonoBehaviour
 {
-    public Action onStop;
-    private Action onTrigger;
-    private Action<GameObject> onCollide;
+    public event Action OnStopped;
+    public event Action OnTriggered;
+    public event Action<GameObject> OnCollided;
 
-    private void OnParticleSystemStopped() => onStop?.Invoke();
-    private void OnParticleCollision(GameObject other) => onCollide?.Invoke(other);
-    private void OnParticleTrigger() => onTrigger?.Invoke();
+    private void OnParticleSystemStopped() => OnStopped?.Invoke();
+    private void OnParticleCollision(GameObject other) => OnCollided?.Invoke(other);
+    private void OnParticleTrigger() => OnTriggered?.Invoke();
 }
