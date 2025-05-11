@@ -1,10 +1,10 @@
 {
-    "name": "Interaction",
-    "rootNamespace": "InteractionSystem",
+    "name": "Toolbox.UIAnimation",
+    "rootNamespace": "",
     "references": [
         "GUID:2e5042635716d904191004d1e75011b8",
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:2ee0d931a0f7d55419035d1f87feeb4d"
+        "GUID:63b4b8c7d78170a46b98840afbba1f14",
+        "GUID:44519e8120d92c34283190e4abbd16a8"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
