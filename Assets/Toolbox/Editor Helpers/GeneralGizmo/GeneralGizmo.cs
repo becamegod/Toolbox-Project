@@ -1,11 +1,22 @@
 using UnityEngine;
 
-public class GeneralGizmo : MonoBehaviour
+public abstract class GeneralGizmo : MonoBehaviour
 {
-    protected GizmoManager manager;
+    [SerializeField] bool alwaysDraw = true;
 
-    private void Awake()
+    protected GizmoManager Manager => GizmoManager.Instance;
+
+    private void OnDrawGizmos()
     {
-        manager = GizmoManager.Instance;
+        if (!enabled) return;
+        if (alwaysDraw) Draw();
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (!enabled) return;
+        if (!alwaysDraw) Draw();
+    }
+
+    protected abstract void Draw();
 }

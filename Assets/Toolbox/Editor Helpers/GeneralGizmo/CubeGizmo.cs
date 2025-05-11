@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class CubeGizmo : GeneralGizmo
 {
-    public Vector3 size;
+    [SerializeField] Vector3 size = Vector3.one;
 
-    private void OnDrawGizmos()
+    protected override void Draw()
     {
-        Gizmos.color = manager.color;
+        Gizmos.color = Manager.color;
         Gizmos.DrawCube(transform.position, size);
     }
 }

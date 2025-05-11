@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PositionGizmo : GeneralGizmo
 {
-    private void OnDrawGizmos()
+    protected override void Draw()
     {
-        Gizmos.color = manager.color;
-        Gizmos.DrawSphere(transform.position, manager.sphereSize);
+        Gizmos.color = Manager.color;
+        Gizmos.DrawSphere(transform.position, Manager.sphereSize);
     }
 }
